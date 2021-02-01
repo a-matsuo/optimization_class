@@ -9,7 +9,7 @@
 - to_ising() //maybe we don't need this since we can convert a problem with converters
 
 ## Use cases
-- We can call `OptimizationProblem.to_qp()` to get a `QuadraticProblem` from each problem class. For example, for max cut, it should be as follows.
+- We can call `OptimizationProblem.to_qp()` to get a `QuadraticProblem` from each problem class. The following is a total flow from creating a problem instance to visualizing a networkx graph for a max cut problem.
 ```
 # Prepare a max cut problem.
 max_cut = MaxCut()
