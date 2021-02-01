@@ -26,6 +26,6 @@ qaoa = MinimumEigenOptimizer(qaoa_mes)
 qaoa_result = qaoa.solve(qp)
 
 # Visualize a graph based on a solution with networkx and get the cut value for the solution.
-max_cut.get_graph_solution(qaoa.x)
-print(max_cut.max_cut_value(qaoa.x))
+max_cut.get_graph_solution(qaoa_result.x)
+print(max_cut.max_cut_value(qaoa_result.x))
 ```
