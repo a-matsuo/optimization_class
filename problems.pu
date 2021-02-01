@@ -3,84 +3,81 @@ skinparam classAttributeIconSize 0
 package Problems {
     class OptimizationProblem
     {
-        -problem //has an internal optimization model using docplex
-        -to_qp() //generates `QuadraticProgram` from problem infromation
+        +problem //has an internal optimization model using docplex
+        +to_qp() //generates `QuadraticProgram` from problem infromation
 
     }
     class GraphProblem
     {
-        -create_graph() //can create from ndarray and/or networkx
-        -random_graph() //generates a random graph with n node
+        +__int__() //can create from ndarray and/or networkx
+        +random_graph() //generates a random graph with n node
+        +get_graph_solution() //visualize solutions with a graph?
+
     }
 
     class Clique
     {
-        -//need to set size K
-        -satisfy_or_not(K) //have a clique of size K? calculate classically
-        -get_graph_solution() //visualize solutions with a graph?
+        +//need to set size K
+        +satisfy_or_not(K) //have a clique of size K? calculate classically
     }
 
     class ExactCover
     {
-        -check_solution_satisfiability()
-        -get_solution()
+        +check_solution_satisfiability()
+        +get_solution()
     }
 
     class GraphPartinioning
     {
-        -object_value()
-        -get_graph_solution() //visualize solutions with a graph?
+        +object_value()
     }
 
     class KNapskac
     {
-        -knapsack_value_weight()
+        +knapsack_value_weight()
 
     }
 
     class MaxCut
     {
-        -max_cut_value()
-        -get_graph_solution()
+        +max_cut_value()
     }
 
     class NumberPartitioning
     {
-        -partition_value()
+        +partition_value()
     }
 
     class SetPacking
     {
-        -get_solution()
-        -check_disjoint()
+        +get_solution()
+        +check_disjoint()
     }
 
     class StableSet
     {
-        -stable_set_value
-        -get_graph_solution()
+        +stable_set_value
     }
 
     class Tsp
     {
-        -random_tsp()
-        -parse_tsplib_format() //reads graph in TSPLIB format from file.
-        -get_tsp_solution()
-        -tsp_feasible() //checks whether a solution is feasible or not
-        -tsp_value() //computes the TSP value of a solution.
-        -calc_distance() //calculates distance of a given route.
+        +random_tsp()
+        +parse_tsplib_format() //reads graph in TSPLIB format from file.
+        +get_tsp_solution()
+        +tsp_feasible() //checks whether a solution is feasible or not
+        +tsp_value() //computes the TSP value of a solution.
+        +calc_distance() //calculates distance of a given route.
     }
 
     class VehicleRouting
     {
-        -get_vehicleroutingh_cost()
-        -get_vehiclerougting_solution()
+        +get_vehicleroutingh_cost()
+        +get_vehiclerougting_solution()
     }
 
     class VertexCover
     {
-        -check_full_edge_coverage()
-        -get_graph_solution()
+        +check_full_edge_coverage()
     }
 
 }
