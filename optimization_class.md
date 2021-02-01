@@ -27,5 +27,5 @@ qaoa_result = qaoa.solve(qp)
 
 # Visualize a graph based on a solution with networkx and get the cut value for the solution.
 max_cut.get_graph_solution(qaoa.x)
-max_cut.max_cut_value(qaoa.x)
+print(max_cut.max_cut_value(qaoa.x))
 ```
