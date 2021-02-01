@@ -11,11 +11,21 @@
 ## Use cases
 - We can call `OptimizationProblem.to_qp()` to get a `QuadraticProblem` from each problem class. For example, for max cut, it should be as follows.
 ```
-max_cut = MaxCut() 
+# Prepare a max cut problem.
+max_cut = MaxCut()
+
+# Can generate a problem instance with a random graph
+# Also, it can generate a problem instance with an adjacency matrix or a networkx graph
+# e.g. max_cut = MaxCut(networkx_graph)
+max_cut.random_graph()
 qp = max_cut.to_qp()
 
+# Solve the problem with QAOA
 qaoa_mes = QAOA()
 qaoa = MinimumEigenOptimizer(qaoa_mes)
 qaoa_result = qaoa.solve(qp)
-print(qaoa_result)
+
+# Visualize a graph based on a solution with networkx and get the cut value for the solution.
+max_cut.get_graph_solution(qaoa.x)
+max_cut.max_cut_value(qaoa.x)
 ```
