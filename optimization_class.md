@@ -11,7 +11,7 @@
 ## Use cases
 - We can call `OptimizationProblem.to_qp()` to get a `QuadraticProblem` from each problem class. For example, for max cut, it should be as follows.
 ```
-max_cut = MaxCut() //
+max_cut = MaxCut() 
 qp = max_cut.to_qp()
 
 qaoa_mes = QAOA()
