@@ -5,84 +5,78 @@ package Problems {
     {
         +problem //has an internal optimization model using docplex
         +to_qp() //generates `QuadraticProgram` from problem infromation
-
+        +is_feasible(x)
+        +objective_value(x)
     }
     class GraphProblem
     {
         +__int__() //can create from ndarray and/or networkx
         +random_graph() //generates a random graph with n node
-        +get_graph_solution() //visualize solutions with a graph?
-
+        +plot_graph(x) //visualize a solution on a graph.
     }
 
     class Clique
     {
-        +//need to set size K
-        +satisfy_or_not(K) //have a clique of size K? calculate classically
+        +size //need to set size K for a clique
     }
 
     class ExactCover
     {
-        +check_solution_satisfiability()
-        +get_solution()
     }
 
     class GraphPartinioning
     {
-        +object_value()
+
     }
 
     class KNapskac
     {
-        +knapsack_value_weight()
 
     }
 
     class MaxCut
     {
-        +max_cut_value()
+
+    }
+
+    class SetProblem
+    {
+        +show_sets() //to show actual sets made from a bitstring. any good name?
     }
 
     class NumberPartitioning
     {
-        +partition_value()
+
     }
 
     class SetPacking
     {
-        +get_solution()
-        +check_disjoint()
+
     }
 
     class StableSet
     {
-        +stable_set_value
+
     }
 
     class Tsp
     {
-        +random_tsp()
         +parse_tsplib_format() //reads graph in TSPLIB format from file.
-        +get_tsp_solution()
-        +tsp_feasible() //checks whether a solution is feasible or not
-        +tsp_value() //computes the TSP value of a solution.
-        +calc_distance() //calculates distance of a given route.
     }
 
     class VehicleRouting
     {
-        +get_vehicleroutingh_cost()
-        +get_vehiclerougting_solution()
     }
 
     class VertexCover
     {
-        +check_full_edge_coverage()
     }
 
 }
 
 OptimizationProblem <|-- GraphProblem
+OptimizationProblem <|-- SetProblem
+
 GraphProblem <|-- Clique
 GraphProblem <|-- GraphPartinioning
 GraphProblem <|-- MaxCut
@@ -91,10 +85,10 @@ GraphProblem <|-- Tsp
 GraphProblem <|-- VehicleRouting
 GraphProblem <|-- VertexCover
 
-OptimizationProblem <|-- ExactCover
-OptimizationProblem <|-- SetPacking
-OptimizationProblem <|-- NumberPartitioning
-OptimizationProblem <|-- KNapskac
+SetProblem<|-- ExactCover
+SetProblem<|-- SetPacking
+SetProblem <|-- NumberPartitioning
+SetProblem <|-- KNapskac
 @enduml
 
         -to_ising() //maybe we don't need this since we can convert a problem with converters
