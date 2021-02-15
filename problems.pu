@@ -1,18 +1,20 @@
 @startuml
 skinparam classAttributeIconSize 0
-package Problems {
-    class OptimizationProblem
+package optimization/applications/ising {
+    class BaseApplication
     {
-        +problem //has an internal optimization model using docplex
-        +to_qp() //generates `QuadraticProgram` from problem infromation
+        +_build_quadratic_program() //generates `QuadraticProgram` from problem infromation
+        +to_quadratic_program()
         +is_feasible(x)
-        +objective_value(x)
+        +evaluate(x)
+        +interpret
     }
-    class GraphProblem
+    class GraphApplication
     {
         +__int__() //can create from ndarray and/or networkx
         +random_graph() //generates a random graph with n node
         +plot_graph(x) //visualize a solution on a graph.
+        +g() // return the graph interanlly stored
     }
 
     class Clique
@@ -39,7 +41,7 @@ package Problems {
 
     }
 
-    class SetProblem
+    class SetApplication
     {
         +show_sets() //to show actual sets made from a bitstring. any good name?
     }
@@ -61,6 +63,7 @@ package Problems {
 
     class Tsp
     {
+        +random_graph() //returns a geometric graph
         +parse_tsplib_format() //reads graph in TSPLIB format from file.
     }
 
@@ -74,21 +77,34 @@ package Problems {
 
 }
 
-OptimizationProblem <|-- GraphProblem
-OptimizationProblem <|-- SetProblem
+package finance/applications/ising {
+    class Portofolio
+    {
+    }
+    class PortofolioDiversification
+    {
+    }
+}
 
-GraphProblem <|-- Clique
-GraphProblem <|-- GraphPartinioning
-GraphProblem <|-- MaxCut
-GraphProblem <|-- StableSet
-GraphProblem <|-- Tsp
-GraphProblem <|-- VehicleRouting
-GraphProblem <|-- VertexCover
+BaseApplication <|-- GraphApplication
+BaseApplication <|-- SetApplication
 
-SetProblem<|-- ExactCover
-SetProblem<|-- SetPacking
-SetProblem <|-- NumberPartitioning
-SetProblem <|-- KNapskac
+GraphApplication <|-- Clique
+GraphApplication <|-- GraphPartinioning
+GraphApplication <|-- MaxCut
+GraphApplication <|-- StableSet
+GraphApplication <|-- Tsp
+GraphApplication <|-- VehicleRouting
+GraphApplication <|-- VertexCover
+
+SetApplication<|-- ExactCover
+SetApplication<|-- SetPacking
+SetApplication <|-- NumberPartitioning
+SetApplication <|-- KNapskac
+
+BaseApplication <|-- Portofolio
+BaseApplication <|-- PortofolioDiversification
+
 @enduml
 
         -to_ising() //maybe we don't need this since we can convert a problem with converters
