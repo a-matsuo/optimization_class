@@ -1,0 +1,48 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class BaseApplication{
+
+}
+package finance/applications{
+    package ising{
+        class Portfolio
+        {
+            +randome_model()
+            +get_operator()
+            +portfolio_value()
+            +portfolio_expected_value()
+            +portfolio_variance()
+        }
+        class PortfolioDiversification
+        {
+            +//a python file with functions
+            +get_operator()
+            +get_portfoliodiversification_solution()
+            +get_portfoliodiversification_value()
+        }
+    }
+    class EuropeanCallExpectedValue{
+        +build_quantum_circuit()
+        +post_processing()
+    }
+
+    class FixedIncomeExpectedValue{
+        +build_quantum_circuit()
+        +post_processing()
+    }
+
+    class GaussianConditionalIndependenceModel{
+        +build_quantum_circuit()
+    }
+}
+
+BaseApplication <|--EuropeanCallExpectedValue
+BaseApplication <|--FixedIncomeExpectedValue
+BaseApplication <|--GaussianConditionalIndependenceModel
+BaseApplication <|-- Portfolio
+BaseApplication <|-- PortfolioDiversification
+
+@enduml
+
+        -to_ising() //maybe we don't need this since we can convert a problem with converters
