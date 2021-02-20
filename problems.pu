@@ -13,8 +13,8 @@ package optimization/applications/ising {
     {
         +__int__() //can create from ndarray and/or networkx
         +random_graph() //generates a random graph with n node
-        +plot_graph(x) //visualize a solution on a graph.
-        +g() // return the graph interanlly stored
+        +draw_graph(x) //visualize a solution on a graph.
+        +graph() // return the graph interanlly stored
     }
 
     class Clique
@@ -39,11 +39,6 @@ package optimization/applications/ising {
     class MaxCut
     {
 
-    }
-
-    class SetApplication
-    {
-        +show_sets() //to show actual sets made from a bitstring. any good name?
     }
 
     class NumberPartitioning
@@ -87,7 +82,6 @@ package finance/applications/ising {
 }
 
 BaseApplication <|-- GraphApplication
-BaseApplication <|-- SetApplication
 
 GraphApplication <|-- Clique
 GraphApplication <|-- GraphPartinioning
@@ -97,10 +91,10 @@ GraphApplication <|-- Tsp
 GraphApplication <|-- VehicleRouting
 GraphApplication <|-- VertexCover
 
-SetApplication<|-- ExactCover
-SetApplication<|-- SetPacking
-SetApplication <|-- NumberPartitioning
-SetApplication <|-- KNapskac
+BaseApplication<|-- ExactCover
+BaseApplication<|-- SetPacking
+BaseApplication <|-- NumberPartitioning
+BaseApplication <|-- KNapskac
 
 BaseApplication <|-- Portofolio
 BaseApplication <|-- PortofolioDiversification
